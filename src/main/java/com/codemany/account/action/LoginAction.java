@@ -1,5 +1,8 @@
 package com.codemany.account.action;
 
+import com.codemany.account.dao.UserDao;
+import com.codemany.account.model.User;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -15,7 +18,11 @@ public class LoginAction extends ActionSupport {
             return INPUT;
         }
 
-        if ("test".equals(username) && "test".equals(password)) {
+        User u = UserDao.getUser(username);
+        if (u == null) {
+            return INPUT;
+        }
+        if (username.equals(u.getUsername()) && password.equals(u.getPassword())) {
             ActionContext.getContext().getSession().put("logined", true);
             return SUCCESS;
         }

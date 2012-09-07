@@ -7,14 +7,5 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="true" />
     <constant name="struts.devMode" value="true" />
 
-    <package name="default" extends="struts-default">
-        <action name="login" class="com.codemany.account.action.LoginAction">
-            <result name="success">/index.jsp</result>
-            <result name="input">/index.jsp</result>
-        </action>
-
-        <action name="logout" class="com.codemany.account.action.LogoutAction">
-            <result name="success" type="redirect">/index.jsp</result>
-        </action>
-    </package>
+    <include file="account.xml" />
 </struts>
