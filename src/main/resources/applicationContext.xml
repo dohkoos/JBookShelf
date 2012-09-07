@@ -31,8 +31,12 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
-    <bean id="loginAction" class="com.codemany.account.action.LoginAction" scope="prototype">
+    <bean id="userService" class="com.codemany.account.service.UserService">
         <property name="userDao" ref="userDao" />
+    </bean>
+
+    <bean id="loginAction" class="com.codemany.account.action.LoginAction" scope="prototype">
+        <property name="userService" ref="userService" />
     </bean>
 
     <bean id="logoutAction" class="com.codemany.account.action.LogoutAction" scope="prototype" />
