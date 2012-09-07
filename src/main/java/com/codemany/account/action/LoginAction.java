@@ -12,22 +12,21 @@ public class LoginAction extends ActionSupport {
     private String username;
     private String password;
 
+    private UserDao userDao;
+
     public String execute() throws Exception {
         if (username == null || username.length() == 0
                 || password == null || password.length() == 0) {
             return INPUT;
         }
 
-        User u = UserDao.getUser(username);
-        if (u == null) {
+        User u = userDao.getUser(username);
+        if (u == null || !password.equals(u.getPassword())) {
             return INPUT;
         }
-        if (username.equals(u.getUsername()) && password.equals(u.getPassword())) {
-            ActionContext.getContext().getSession().put("logined", true);
-            return SUCCESS;
-        }
 
-        return INPUT;
+        ActionContext.getContext().getSession().put("logined", true);
+        return SUCCESS;
     }
 
     public void setUsername(String username) {
@@ -36,5 +35,9 @@ public class LoginAction extends ActionSupport {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 }

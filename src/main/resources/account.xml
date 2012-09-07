@@ -5,12 +5,12 @@
 
 <struts>
     <package name="default" extends="struts-default">
-        <action name="login" class="com.codemany.account.action.LoginAction">
+        <action name="login" class="loginAction">
             <result name="success">/index.jsp</result>
             <result name="input">/index.jsp</result>
         </action>
 
-        <action name="logout" class="com.codemany.account.action.LogoutAction">
+        <action name="logout" class="logoutAction">
             <result name="success" type="redirect">/index.jsp</result>
         </action>
     </package>
