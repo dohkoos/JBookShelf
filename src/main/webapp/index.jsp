@@ -14,12 +14,8 @@
         Welcome, you have logined. <a href="<%= request.getContextPath() %>/logout.action">Logout</a>
     </s:if>
     <s:else>
-        <p>User: test/test</p>
-        <s:form action="login">
-            <s:textfield key="username" label="Username" />
-            <s:password key="password" label="Password" />
-            <s:submit value="Login" />
-        </s:form>
+        <a href="<%= request.getContextPath() %>/login!input.action">Login</a> |
+        <a href="<%= request.getContextPath() %>/register!input.action">Register</a>
     </s:else>
 </body>
 </html>

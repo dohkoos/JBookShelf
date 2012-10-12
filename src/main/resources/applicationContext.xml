@@ -40,4 +40,8 @@
     </bean>
 
     <bean id="logoutAction" class="com.codemany.account.action.LogoutAction" scope="prototype" />
+
+    <bean id="registerAction" class="com.codemany.account.action.RegisterAction" scope="prototype">
+        <property name="userService" ref="userService" />
+    </bean>
 </beans>
