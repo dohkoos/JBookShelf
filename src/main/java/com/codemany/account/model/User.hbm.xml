@@ -3,13 +3,13 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.codemany.account.model">
-    <class name="User" table="users">
+<hibernate-mapping>
+    <class name="com.codemany.account.model.User" table="users">
         <id name="id">
             <generator class="increment" />
         </id>
 
-        <property name="username" length="20" />
-        <property name="password" length="50" />
+        <property name="username" length="20" not-null="true" />
+        <property name="password" length="50" not-null="true" />
     </class>
 </hibernate-mapping>

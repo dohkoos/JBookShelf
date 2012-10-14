@@ -10,12 +10,13 @@
 </head>
 
 <body>
-    <s:if test="#session.logined">
-        Welcome, you have logined. <a href="<%= request.getContextPath() %>/logout.action">Logout</a>
+    <s:if test="#session.user != null">
+        Welcome, you have logined.
+        <s:a action="logout">Logout</s:a>
     </s:if>
     <s:else>
-        <a href="<%= request.getContextPath() %>/login!input.action">Login</a> |
-        <a href="<%= request.getContextPath() %>/register!input.action">Register</a>
+        <s:a action="login!input">Login</s:a> |
+        <s:a action="register!input">Register</s:a>
     </s:else>
 </body>
 </html>

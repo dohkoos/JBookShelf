@@ -1,8 +1,11 @@
 package com.codemany.account.model;
 
-public class User {
-    private Long id;
+import java.io.Serializable;
 
+public class User implements Serializable {
+    private static final long serialVersionUID = -101885742532588984L;
+
+    private Long id;
     private String username;
     private String password;
     private String confirmPassword;

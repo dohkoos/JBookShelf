@@ -6,12 +6,12 @@
 <struts>
     <package name="default" extends="struts-default">
         <action name="login" class="loginAction">
-            <result name="success">/index.jsp</result>
+            <result>/index.jsp</result>
             <result name="input">/login.jsp</result>
         </action>
 
         <action name="register" class="registerAction">
-            <result name="success">/index.jsp</result>
+            <result>/index.jsp</result>
             <result name="input">/register.jsp</result>
         </action>
 

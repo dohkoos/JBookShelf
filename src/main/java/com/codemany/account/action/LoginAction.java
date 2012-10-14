@@ -15,12 +15,12 @@ public class LoginAction extends ActionSupport {
     private UserService userService;
 
     public String execute() throws Exception {
-        User u = userService.getUser(username);
-        if (u == null || !password.equals(u.getPassword())) {
+        User u = userService.authenticate(username, password);
+        if (u == null) {
             return INPUT;
         }
 
-        ActionContext.getContext().getSession().put("logined", true);
+        ActionContext.getContext().getSession().put("user", u);
         return SUCCESS;
     }
 

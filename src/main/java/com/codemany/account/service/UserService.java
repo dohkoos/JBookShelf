@@ -10,6 +10,14 @@ public class UserService {
         this.userDao = userDao;
     }
 
+    public User authenticate(String username, String password) {
+        User u = getUser(username);
+        if (u != null && password.equals(u.getPassword())) {
+            return u;
+        }
+        return null;
+    }
+
     public User getUser(String username) {
         return userDao.getUser(username);
     }

@@ -17,8 +17,8 @@ public class UserDao {
     public User getUser(String username) {
         Session session = sessionFactory.openSession();
         try {
-            Query query = session.createQuery("from User u where u.username = ?");
-            query.setString(0, username);
+            Query query = session.createQuery("from User u where u.username = :username");
+            query.setString("username", username);
             query.setMaxResults(1);
             return (User)query.uniqueResult();
         } finally {

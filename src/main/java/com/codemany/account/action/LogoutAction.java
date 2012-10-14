@@ -7,7 +7,7 @@ public class LogoutAction extends ActionSupport {
     private static final long serialVersionUID = -518996422060716751L;
 
     public String execute() throws Exception {
-        ActionContext.getContext().getSession().put("logined", false);
+        ActionContext.getContext().getSession().remove("user");
         return SUCCESS;
     }
 }
