@@ -12,8 +12,8 @@
 <body>
     <p>User: test/test</p>
     <s:form action="login">
-        <s:textfield key="username" label="Username" />
-        <s:password key="password" label="Password" />
+        <s:textfield name="username" label="Username" />
+        <s:password name="password" label="Password" />
         <s:submit value="Login" />
     </s:form>
 </body>

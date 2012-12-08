@@ -1,6 +1,10 @@
 package com.codemany.account.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.codemany.book.model.Book;
 
 public class User implements Serializable {
     private static final long serialVersionUID = -101885742532588984L;
@@ -9,6 +13,7 @@ public class User implements Serializable {
     private String username;
     private String password;
     private String confirmPassword;
+    private Set<Book> books = new HashSet<Book>();
 
     public Long getId() {
         return id;
@@ -40,5 +45,13 @@ public class User implements Serializable {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 }

@@ -5,7 +5,7 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/jbookshelf" />
+        <property name="url" value="jdbc:mysql://localhost:3306/jbookshelf?useUnicode=true&amp;characterEncoding=UTF-8" />
         <property name="username" value="root" />
         <property name="password" value="123456" />
     </bean>
@@ -17,16 +17,18 @@
                 <prop key="hibernate.connection.pool_size">1</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</prop>
-                <prop key="show_sql">true</prop>
+                <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
         <property name="mappingResources">
             <list>
                 <value>com/codemany/account/model/User.hbm.xml</value>
+                <value>com/codemany/book/model/Book.hbm.xml</value>
             </list>
         </property>
     </bean>
 
+    <!-- account -->
     <bean id="userDao" class="com.codemany.account.dao.UserDao">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
@@ -43,5 +45,34 @@
 
     <bean id="registerAction" class="com.codemany.account.action.RegisterAction" scope="prototype">
         <property name="userService" ref="userService" />
+    </bean>
+
+    <!-- book -->
+    <bean id="bookDao" class="com.codemany.book.dao.BookDao">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="bookService" class="com.codemany.book.service.BookService">
+        <property name="bookDao" ref="bookDao" />
+    </bean>
+
+    <bean id="listBookAction" class="com.codemany.book.action.ListBookAction" scope="prototype">
+        <property name="bookService" ref="bookService" />
+    </bean>
+
+    <bean id="showBookAction" class="com.codemany.book.action.ShowBookAction" scope="prototype">
+        <property name="bookService" ref="bookService" />
+    </bean>
+
+    <bean id="addBookAction" class="com.codemany.book.action.AddBookAction" scope="prototype">
+        <property name="bookService" ref="bookService" />
+    </bean>
+
+    <bean id="editBookAction" class="com.codemany.book.action.EditBookAction" scope="prototype">
+        <property name="bookService" ref="bookService" />
+    </bean>
+
+    <bean id="deleteBookAction" class="com.codemany.book.action.DeleteBookAction" scope="prototype">
+        <property name="bookService" ref="bookService" />
     </bean>
 </beans>

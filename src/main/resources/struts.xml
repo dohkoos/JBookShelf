@@ -8,4 +8,5 @@
     <constant name="struts.devMode" value="true" />
 
     <include file="account.xml" />
+    <include file="book.xml" />
 </struts>

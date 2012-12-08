@@ -11,9 +11,9 @@
 
 <body>
     <s:form action="register">
-        <s:textfield key="user.username" label="Username" />
-        <s:password key="user.password" label="Password" />
-        <s:password key="user.confirmPassword" label="Password Confirmation" />
+        <s:textfield name="user.username" label="Username" />
+        <s:password name="user.password" label="Password" />
+        <s:password name="user.confirmPassword" label="Password Confirmation" />
         <s:submit value="Register" />
     </s:form>
 </body>

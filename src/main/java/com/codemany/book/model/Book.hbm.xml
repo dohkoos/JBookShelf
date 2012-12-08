@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.codemany.book.model.Book" table="books">
+        <id name="id">
+            <generator class="increment" />
+        </id>
+
+        <property name="title" not-null="true" />
+        <property name="description" />
+        <property name="image_url" />
+        <property name="price" not-null="true" />
+        <property name="author" not-null="true" />
+        <property name="isbn" not-null="true" />
+        <property name="publisher" not-null="true" />
+
+        <many-to-one name="user" column="user_id" not-null="true" />
+    </class>
+</hibernate-mapping>

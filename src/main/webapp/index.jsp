@@ -11,6 +11,7 @@
 
 <body>
     <s:if test="#session.user != null">
+        <s:a action="listBook">All Books</s:a>
         Welcome, you have logined.
         <s:a action="logout">Logout</s:a>
     </s:if>

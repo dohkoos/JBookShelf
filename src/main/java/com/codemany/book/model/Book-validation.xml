@@ -1,0 +1,35 @@
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="title">
+        <field-validator type="requiredstring">
+            <message>Title is required</message>
+        </field-validator>
+    </field>
+    <field name="price">
+        <field-validator type="required">
+            <message>Price is required</message>
+        </field-validator>
+        <field-validator type="double">
+            <param name="minInclusive">0.01</param>
+            <message>Price should be at least 0.01</message>
+        </field-validator>
+    </field>
+    <field name="author">
+        <field-validator type="requiredstring">
+            <message>Author is required</message>
+        </field-validator>
+    </field>
+    <field name="isbn">
+        <field-validator type="requiredstring">
+            <message>ISBN is required</message>
+        </field-validator>
+    </field>
+    <field name="publisher">
+        <field-validator type="requiredstring">
+            <message>Publisher is required</message>
+        </field-validator>
+    </field>
+</validators>
