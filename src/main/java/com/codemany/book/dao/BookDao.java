@@ -39,24 +39,12 @@ public class BookDao {
         }
     }
 
-    public void addBook(Book book) {
+    public void saveOrUpdateBook(Book book) {
         Session session = sessionFactory.openSession();
         Transaction ts = null;
         try {
             ts = session.beginTransaction();
-            session.save(book);
-            ts.commit();
-        } finally {
-            session.close();
-        }
-    }
-
-    public void updateBook(Book book) {
-        Session session = sessionFactory.openSession();
-        Transaction ts = null;
-        try {
-            ts = session.beginTransaction();
-            session.update(book);
+            session.saveOrUpdate(book);
             ts.commit();
         } finally {
             session.close();

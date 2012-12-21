@@ -56,23 +56,7 @@
         <property name="bookDao" ref="bookDao" />
     </bean>
 
-    <bean id="listBookAction" class="com.codemany.book.action.ListBookAction" scope="prototype">
-        <property name="bookService" ref="bookService" />
-    </bean>
-
-    <bean id="showBookAction" class="com.codemany.book.action.ShowBookAction" scope="prototype">
-        <property name="bookService" ref="bookService" />
-    </bean>
-
-    <bean id="addBookAction" class="com.codemany.book.action.AddBookAction" scope="prototype">
-        <property name="bookService" ref="bookService" />
-    </bean>
-
-    <bean id="editBookAction" class="com.codemany.book.action.EditBookAction" scope="prototype">
-        <property name="bookService" ref="bookService" />
-    </bean>
-
-    <bean id="deleteBookAction" class="com.codemany.book.action.DeleteBookAction" scope="prototype">
+    <bean id="bookAction" class="com.codemany.book.action.BookAction" scope="prototype">
         <property name="bookService" ref="bookService" />
     </bean>
 </beans>

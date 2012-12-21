@@ -20,12 +20,8 @@ public class BookService {
         return bookDao.getBook(bookId);
     }
 
-    public void addBook(Book book) {
-        bookDao.addBook(book);
-    }
-
-    public void updateBook(Book book) {
-        bookDao.updateBook(book);
+    public void saveOrUpdateBook(Book book) {
+        bookDao.saveOrUpdateBook(book);
     }
 
     public void deleteBook(Long bookId) {

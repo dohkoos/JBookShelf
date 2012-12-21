@@ -35,7 +35,7 @@
         <td><s:property value="publisher" /></td>
         <td>
             <s:a href="showBook.action?bookId=%{id}">Show</s:a>
-            <s:a href="editBook!input.action?bookId=%{id}">Edit</s:a>
+            <s:a href="inputBook.action?bookId=%{id}">Edit</s:a>
             <s:a href="deleteBook.action?bookId=%{id}" preInvokeJS="confirm('Are you sure?');" method="delete">Destroy</s:a>
         </td>
     </tr>
@@ -44,6 +44,6 @@
 
 <br />
 
-<s:a action="addBook!input">Add</s:a>
+<s:a action="inputBook">Add</s:a>
 </body>
 </html>

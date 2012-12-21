@@ -46,7 +46,7 @@
 </p>
 
 
-<s:a href="editBook!input.action?bookId=%{book.id}">Edit</s:a> |
+<s:a href="inputBook.action?bookId=%{book.id}">Edit</s:a> |
 <s:a action="listBook">Back</s:a>
 </body>
 </html>
