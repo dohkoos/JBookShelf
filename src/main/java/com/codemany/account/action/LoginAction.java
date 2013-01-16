@@ -20,7 +20,7 @@ public class LoginAction extends ActionSupport {
             return INPUT;
         }
 
-        ActionContext.getContext().getSession().put("user", u);
+        ActionContext.getContext().getSession().put(User.SESSION_KEY, u);
         return SUCCESS;
     }
 

@@ -36,7 +36,7 @@ public class BookAction extends ActionSupport {
     }
 
     public String saveOrUpdate() throws Exception {
-        User user = (User)ActionContext.getContext().getSession().get("user");
+        User user = (User)ActionContext.getContext().getSession().get(User.SESSION_KEY);
         book.setUser(user);
         bookService.saveOrUpdateBook(book);
         return SUCCESS;

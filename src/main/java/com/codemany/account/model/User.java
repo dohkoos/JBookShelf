@@ -9,6 +9,8 @@ import com.codemany.book.model.Book;
 public class User implements Serializable {
     private static final long serialVersionUID = -101885742532588984L;
 
+    public static final String SESSION_KEY = "user_session_key";
+
     private Long id;
     private String username;
     private String password;
