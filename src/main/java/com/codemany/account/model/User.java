@@ -56,4 +56,13 @@ public class User implements Serializable {
     public void setBooks(Set<Book> books) {
         this.books = books;
     }
+
+    public Book getBook(Long bookId) {
+        for (Book book : books) {
+            if (bookId != null && bookId.equals(book.getId())) {
+                return book;
+            }
+        }
+        return null;
+    }
 }

@@ -3,7 +3,6 @@ CREATE DATABASE IF NOT EXISTS jbookshelf;
 USE jbookshelf;
 
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS books;
 
 CREATE TABLE users (
     id int NOT NULL AUTO_INCREMENT,
@@ -11,6 +10,8 @@ CREATE TABLE users (
     password varchar(50) NOT NULL,
     PRIMARY KEY(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS books;
 
 CREATE TABLE books (
     id int NOT NULL AUTO_INCREMENT,

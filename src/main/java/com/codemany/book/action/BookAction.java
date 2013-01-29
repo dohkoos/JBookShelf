@@ -1,5 +1,6 @@
 package com.codemany.book.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.codemany.account.model.User;
@@ -19,31 +20,37 @@ public class BookAction extends ActionSupport {
     private BookService bookService;
 
     public String list() throws Exception {
-        bookList = bookService.getBookList();
+        if (bookList == null) {
+            bookList = new ArrayList<Book>();
+        }
+        bookList.addAll(getCurrentUser().getBooks());
         return "list";
     }
 
     public String show() throws Exception {
-        book = bookService.getBook(bookId);
+        book = getCurrentUser().getBook(bookId);
         return "show";
     }
 
     public String input() throws Exception {
         if (bookId != null) {
-            book = bookService.getBook(bookId);
+            book = getCurrentUser().getBook(bookId);
         }
         return INPUT;
     }
 
     public String saveOrUpdate() throws Exception {
-        User user = (User)ActionContext.getContext().getSession().get(User.SESSION_KEY);
-        book.setUser(user);
+        book.setUser(getCurrentUser());
         bookService.saveOrUpdateBook(book);
         return SUCCESS;
     }
 
     public String delete() throws Exception {
-        bookService.deleteBook(bookId);
+        Book book = getCurrentUser().getBook(bookId);
+        if (book != null) {
+            bookService.deleteBook(bookId);
+            getCurrentUser().getBooks().remove(book);
+        }
         return SUCCESS;
     }
 
@@ -65,5 +72,9 @@ public class BookAction extends ActionSupport {
 
     public void setBookService(BookService bookService) {
         this.bookService = bookService;
+    }
+
+    private User getCurrentUser() {
+        return (User)ActionContext.getContext().getSession().get(User.SESSION_KEY);
     }
 }

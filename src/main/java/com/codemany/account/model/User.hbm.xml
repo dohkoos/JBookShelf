@@ -13,8 +13,8 @@
         <property name="password" length="50" not-null="true" />
 
         <!-- Bidirectional one-to-many association to Book -->
-        <set name="books" inverse="true">
-            <key column="user_id" not-null="true" />
+        <set name="books" inverse="true" lazy="false">
+            <key column="user_id" />
             <one-to-many class="com.codemany.book.model.Book" />
         </set>
     </class>
