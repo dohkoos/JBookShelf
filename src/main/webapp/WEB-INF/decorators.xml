@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/layouts">
+    <excludes>
+        <pattern>/stylesheets/*</pattern>
+        <pattern>/javascripts/*</pattern>
+        <pattern>/images/*</pattern>
+    </excludes>
+
+    <decorator name="application" page="application.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+</decorators>
